@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa Conceptual</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+
+    <pre class="mermaid">
+graph TD
+    A["Gestión de Estado en PHP"] --> B["SESIONES"]
+    A --> C["COOKIES"]
+
+    %% Sección de Sesiones
+    B --> B1["Almacenamiento: Se guardan en el Servidor"]
+    B --> B2["Duración: Persisten hasta cerrar el navegador o usar session_destroy()"]
+    B --> B3["Escenarios: Logins seguros, carritos de compra, datos sensibles"]
+    B --> B4["Implementación Técnica"]
+    B4 --> B4a["Iniciar: session_start()"]
+    B4 --> B4b["Almacenar/Acceder: $_SESSION"]
+    B4 --> B4c["Eliminar variable: unset($_SESSION['var'])"]
+    B --> B5["Seguridad: Alta. El cliente solo ve el ID. Límite: Consumen RAM del servidor."]
+
+    %% Sección de Cookies
+    C --> C1["Almacenamiento: Se guardan en el Cliente / Navegador Web"]
+    C --> C2["Duración: Configurable mediante fecha de caducidad"]
+    C --> C3["Escenarios: Recordar idioma, temas visuales, rastreo de marketing"]
+    C --> C4["Implementación Técnica"]
+    C4 --> C4a["Crear/Configurar: setcookie()"]
+    C4 --> C4b["Propiedades: Nombre, Valor, Caducidad, Ruta, Dominio"]
+    C4 --> C4c["Acceder: $_COOKIE"]
+    C4 --> C4d["Eliminar: setcookie() con fecha en el pasado"]
+    C --> C5["Seguridad: Baja. Visibles y modificables por el usuario. Límite: Max 4KB."]
+    </pre>
+
+</body>
+</html>
